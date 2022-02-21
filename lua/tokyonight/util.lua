@@ -65,7 +65,7 @@ function util.increaseContrast(hex, amount)
   if util.shouldBrighten(hex) then
     return util.brighten(hex, amount)
   else
-    return util.darken(hex, amount)
+    return util.darken(hex, (1-amount))
   end
 end
 
