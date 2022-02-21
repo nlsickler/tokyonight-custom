@@ -53,10 +53,10 @@ function M.setup(config)
   for key, val in pairs(colors) do
     if type(val) == 'table' then
       for nkey, nval in pairs(val) do
-        colors[key][nkey] = util.increaseContrast(nval, 0.2)
+        colors[key][nkey] = util.increaseContrast(nval, 0.3)
       end
     else
-      colors[key] = util.increaseContrast(val, 0.2)
+      colors[key] = util.increaseContrast(val, 0.3)
     end
   end
 
