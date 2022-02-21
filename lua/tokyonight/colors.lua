@@ -12,7 +12,6 @@ function M.setup(config)
   local colors = {}
 
   colors = {
-    none = "NONE",
     bg_dark = "#1f2335",
     bg = "#24283b",
     bg_highlight = "#292e42",
@@ -60,6 +59,8 @@ function M.setup(config)
       colors[key] = util.increaseContrast(val, 0.2)
     end
   end
+
+  colors['none'] = 'NONE'
 
   util.bg = colors.bg
   util.day_brightness = config.dayBrightness
