@@ -52,6 +52,23 @@ function util.brighten(color, percentage)
   return hsluv.hsluv_to_hex(hsl)
 end
 
+function util.shouldBrighten(hex)
+  local color = hexToRgb(hex)
+  local colorAvg = (color[1] + color[2] + color[3])/3
+  if colorAvg >= 128 then
+    return true
+  end
+  return false
+end
+
+function util.increaseContrast(hex, amount)
+  if util.shouldBrighten(hex) then
+    return util.brighten(hex, amount)
+  else
+    return util.darken(hex, amount)
+  end
+end
+
 function util.invertColor(color)
   if color ~= "NONE" then
     local hsl = hsluv.hex_to_hsluv(color)

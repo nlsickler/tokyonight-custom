@@ -49,6 +49,18 @@ function M.setup(config)
     colors.bg = "#1a1b26"
     colors.bg_dark = "#16161e"
   end
+
+  -- Loops to increase contrast of existing color schemes
+  for key, val in pairs(colors) do
+    if type(val) == 'table' then
+      for nkey, nval in pairs(val) do
+        colors[key][nkey] = util.increaseContrast(nval, 0.2)
+      end
+    else
+      colors[key] = util.increaseContrast(val, 0.2)
+    end
+  end
+
   util.bg = colors.bg
   util.day_brightness = config.dayBrightness
 
